@@ -9,7 +9,21 @@ class Point {
 public:
     Point() : x(0), y(0), distance(0) {}
     Point(double x, double y);
+    ~Point();
 
+    friend bool operator<(const Point& p1, const Point& p2);
+    inline friend bool operator>(const Point& p1, const Point& p2) {
+        return p2 < p1;
+    }
+    inline friend bool operator>=(const Point& p1, const Point& p2) {
+        return !(p1 < p2);
+    }
+    inline friend bool operator<=(const Point& p1, const Point& p2) {
+        return !(p1 > p2);
+    }
+    friend bool operator==(const Point& p1, const Point& p2);
+    friend std::ostream& operator<<(std::ostream& out, const Point& p);
+    
     void set(double x, double y);
     void set_x(double x);
     void set_y(double y);
@@ -21,7 +35,7 @@ public:
     double get_distance();
     double get_distance(Point p);
 
-    std::string str();
+    std::string str() const;
     
 protected:
 private:

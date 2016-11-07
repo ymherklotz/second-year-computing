@@ -1,0 +1,22 @@
+#include <iostream>
+#include <vector>
+
+#include "../include/stopwatch.hpp"
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    (void)argc;
+    (void)argv;
+
+    Stopwatch sw;
+
+    for(int i = 0; i < 5000; ++i) {
+        cout << sw << endl;
+        sw.tick();
+    }
+
+    cout << sw << endl;
+
+    return 0;
+}

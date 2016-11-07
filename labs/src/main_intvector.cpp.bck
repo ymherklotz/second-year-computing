@@ -1,0 +1,39 @@
+#include <iostream>
+#include <vector>
+
+#include "../include/intvector.hpp"
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+    (void)argc;
+    (void)argv;
+
+    intvector v1;
+
+    for(int i = 0; i < 20; ++i) {
+        v1.push_back(i);
+        
+        cout << "v1.at: " << v1.at(i) << "\tv1.size: " << v1.size() << "\tv1.ca"
+            "pacity: " << v1.capacity() << endl;
+    }
+
+    intvector v2(v1);
+
+    for(int i = 0; i < v2.size(); ++i) {
+        if(v2[i] % 2 == 0) {
+            v2[i] = v2[i] / 2;
+        }
+    }
+
+    v1 = v2;
+
+    for(int i = 0; i < v1.size(); ++i) {
+        cout << "v1 at " << i << ": " << v1[i] << endl;
+        cout << "v2 at " << i << ": " << v2[i] << endl;
+    }
+
+    cout << "4 is at location: " << v1.find(4) << endl;
+
+    return 0;
+}

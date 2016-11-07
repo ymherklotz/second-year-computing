@@ -20,5 +20,11 @@ void Triangle::set_point(unsigned point, Point p) {
 }
 
 double Triangle::perimeter() {
-    return 0;
+    return p1.get_distance(p2) + p1.get_distance(p3) + p2.get_distance(p3);
+}
+
+void Triangle::translate(Point p) {
+    p1.set(p1.get_x()+p.get_x(), p1.get_y()+p.get_y());
+    p2.set(p2.get_x()+p.get_x(), p2.get_y()+p.get_y());
+    p3.set(p3.get_x()+p.get_x(), p3.get_y()+p.get_y());
 }
