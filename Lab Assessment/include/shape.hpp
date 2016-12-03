@@ -60,7 +60,7 @@ public:
 
     double get_perimeter();
 private:
-    const double PI = 3.14;
+    const double PI = 3.14159265;
     Point centre;
     double radius;
 };

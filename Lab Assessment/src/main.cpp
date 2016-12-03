@@ -17,6 +17,8 @@ int main(int argc, char* argv[]) {
     double x_tmp[3], y_tmp[3];
     // radius of circle
     double radius_tmp;
+    // shape pointer added to the vector
+    shape_ptr shape_tmp;
 
     // lists in which the triangles and circles are stored
     list<Triangle> triangle_list;
@@ -83,15 +85,13 @@ int main(int argc, char* argv[]) {
 
     // adding Triangles and Circles to vector of Shapes
     for(list<Triangle>::iterator it = triangle_list.begin(); it != triangle_list.end(); ++it) {
-        shape_ptr tmp;
-        tmp = &*it;
-        shape_vector.push_back(tmp);
+        shape_tmp = &*it;
+        shape_vector.push_back(shape_tmp);
     }
 
     for(list<Circle>::iterator it = circle_list.begin(); it != circle_list.end(); ++it) {
-        shape_ptr tmp;
-        tmp = &*it;
-        shape_vector.push_back(tmp);
+        shape_tmp = &*it;
+        shape_vector.push_back(shape_tmp);
     }
 
     // printing perimeters for all shapes
